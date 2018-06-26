@@ -1,0 +1,10 @@
+POST /api/auth/authDeviceInit.php HTTP/1.1
+User-Agent: ottandroid ( Ott_4.1.9 ) /Android ( Custom Phone - 6.0.0 - API 23 - 768x1280 ) /
+Content-Type: application/x-www-form-urlencoded
+Host: ott.hinet.net
+Connection: close
+Accept-Encoding: gzip, deflate
+Content-Length: 376
+
+version=1.3&device_id=a517f9c255c579ebb730ea62492b87a0&devicetype=1&vender=Android&serial_no=1510098681-84-26-83-27-32&session_id=d86535fa0ad03507c7f5d2880e33fcc11c8ad98a6d0e1cdca38a2cdd0cd86a8a&conntype=device&nickname=Custom+Phone+-+6.0.0+-+API+23+-+768x1280&device_os=android_6.0&stime=1516634031&srvtype=1&app_os=Android&app_ver=4.1.9&chsm=2286d6947bb3f4ed5ede3cbb8376296a
+

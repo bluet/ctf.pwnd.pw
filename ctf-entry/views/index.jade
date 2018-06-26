@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  <a href="/?page=login_bypass_1.html">1. Login Bypass 1</a> &nbsp
+  <a href="/?page=login_bypass_2.html">2. Login Bypass 2</a> &nbsp
+  <a href="/?page=bbs_become_admin.html">3. Become Admin</a> &nbsp
+  <a href="/?page=sys_user.html">4. System Info</a> &nbsp
+  <a href="/?page=secret_string_1.html">5. Secret Message</a> &nbsp
+  <a href="/proxy/?page=hidden_nat.html">6. Hidden Info and NAT Site</a> &nbsp
+  <a href="/?page=ping.html">7. Not Just Ping</a> &nbsp
+  <a href="/?page=apk.html">8. APK</a> &nbsp
+  <a href="/?page=binary.html">9. Binary</a> &nbsp
+  <a href="/?page=network.html">10. Network</a> &nbsp
+  <a href="/?page=crawler-stopper.html">11. Crawler Stopper</a> &nbsp
+  p #{page}
+  p !{content}
