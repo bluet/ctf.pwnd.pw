@@ -6,7 +6,7 @@ $db_user = 'wargame';
 $db_pass = 'qwertyQWERTY';
 $db_name = 'wargame';
 //$r=rand(0,999);
-$key=  "you_can_never_guess_the_key";
+$key=  "LSA{you_can_never_guess_the_key}";
 
 //echo "test!";
 $user = $_POST['uname'];

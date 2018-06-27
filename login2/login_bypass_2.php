@@ -2,7 +2,7 @@
 $user = $_POST ['user'];
 $name = $_POST ['name'];
 //$r=rand(0,999);
-$key=  "Wow_you_passed_the_admin_check";
+$key=  "LSA{Wow_you_passed_the_admin_check}";
 
 
 

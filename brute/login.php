@@ -13,12 +13,12 @@
 			echo "you r admin now!"."<br>";
 			echo "LSA{u a3e so bruty}";
 		}else{
-			echo "password wrong!"."<br>";
 			header("Refresh:3; url=index.html"); 
+			echo "password wrong!"."<br>";
 		}
 	}else{
-		echo "all wrong!"."<br>";
 		header("Refresh:3; url=index.html"); 
+		echo "all wrong!"."<br>";
 	}
 
 ?>
