@@ -1,10 +1,10 @@
 
-
 <?php
 $db_host = 'localhost';
 $db_user = 'wargame';
 $db_pass = 'qwertyQWERTY';
 $db_name = 'wargame';
+$db_port = '20008';
 //$r=rand(0,999);
 $key=  "LSA{you_can_never_guess_the_key}";
 
@@ -18,7 +18,7 @@ if ($user == '' || $pass == '')
 else
 {
 
-	$mysqli = new mysqli($db_host, $db_user, $db_pass, $db_name);
+	$mysqli = new mysqli($db_host, $db_user, $db_pass, $db_name, $db_port);
 	//$con = @mysql_connect($db_host, $db_user, $db_pass);
 	//mysql_select_db($db_name, $con);
 	$query = "SELECT uname,upass FROM wargame1 WHERE uname = '$user' AND upass = '$pass'";
@@ -32,8 +32,8 @@ else
 	}
 	else
 	{
-		echo "sorry :( <br>";
 		header( "Refresh:5; url=wargame1.php", true, 303);
+		echo "sorry :( <br>";
 	}
 
 	$mysqli->close();

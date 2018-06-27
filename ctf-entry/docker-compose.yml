@@ -1,0 +1,16 @@
+version: "2"
+services:
+  node:
+    image: "node:8"
+    user: "node"
+    working_dir: /usr/src/app
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./:/usr/src/app
+    expose:
+      - "3000"
+    ports:
+      - "3000:3000"
+    command: bash -c "npm install && npm start"
+    
