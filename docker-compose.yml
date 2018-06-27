@@ -1,0 +1,33 @@
+version: '2'
+services:
+    brute:
+        image: richarvey/nginx-php-fpm:latest
+        network_mode: "bridge"
+        volumes:
+            - ./brute:/var/www/html/:ro
+        ports:
+            - "20002:80"
+        expose:
+            - "80"
+        restart: always
+    bulletin:
+        image: richarvey/nginx-php-fpm:latest
+        network_mode: "bridge"
+        volumes:
+            - ./bulletin_board:/var/www/html/
+            - ./tool/forum-adm/:/home/node/:ro
+        ports:
+            - "20010:80"
+        expose:
+            - "80"
+        restart: always
+    download:
+        image: richarvey/nginx-php-fpm:latest
+        network_mode: "bridge"
+        volumes:
+            - ./download_center:/var/www/html/
+        ports:
+            - "20011:80"
+        expose:
+            - "80"
+        restart: always
