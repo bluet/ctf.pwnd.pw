@@ -1,0 +1,49 @@
+###########################################################
+###################### General Setup ######################
+###########################################################
+
+### Paths #################################################
+
+DATA_PATH_HOST=~/.CTF.PWND.PW/data
+
+### Drivers ###############################################
+
+# All volumes driver
+VOLUMES_DRIVER=local
+
+# All Networks driver
+NETWORKS_DRIVER=bridge
+
+### Docker compose files ###################################
+
+# Select which docker-compose files to include. If using docker-sync append `:docker-compose.sync.yml` at the end
+COMPOSE_FILE=docker-compose.yml
+
+### sqli ###################################################
+
+SQLI_PORT=20003
+
+### ping ###################################################
+
+PING_PORT=20004
+
+### md5 ####################################################
+
+MD5_PORT=20005
+
+### login2 #################################################
+
+LOGIN2_PORT=20006
+
+### login1 #################################################
+
+LOGIN_PORT=20007
+
+### login1_mysql ###########################################
+
+LOGIN1_MYSQL_VERSION=5.7
+LOGIN1_MYSQL_PORT=20008
+
+### http_header ############################################
+
+HTTP_HEADER_PORT=20009
