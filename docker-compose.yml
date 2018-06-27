@@ -1,15 +1,18 @@
 version: '2'
 services:
+### brute ###########################################
     brute:
         image: richarvey/nginx-php-fpm:latest
         network_mode: "bridge"
         volumes:
             - ./brute:/var/www/html/:ro
         ports:
-            - "20002:80"
+            - "${BRUTE_PORT}:80"
         expose:
             - "80"
         restart: always
+
+### bulletin ########################################
     bulletin:
         image: richarvey/nginx-php-fpm:latest
         network_mode: "bridge"
@@ -17,17 +20,22 @@ services:
             - ./bulletin_board:/var/www/html/
             - ./tool/forum-adm/:/home/node/:ro
         ports:
-            - "20010:80"
+            - "${BULLETIN_PORT}:80"
         expose:
             - "80"
         restart: always
+
+### download ########################################
     download:
         image: richarvey/nginx-php-fpm:latest
         network_mode: "bridge"
         volumes:
             - ./download_center:/var/www/html/
         ports:
-            - "20011:80"
+            - "${DOWNLOAD_PORT}:80"
+        expose:
+            - "80"
+        restart: always
 
 ### sqli ############################################
     sqli:
