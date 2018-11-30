@@ -19,6 +19,18 @@ NETWORKS_DRIVER=bridge
 # Select which docker-compose files to include. If using docker-sync append `:docker-compose.sync.yml` at the end
 COMPOSE_FILE=docker-compose.yml
 
+### brute ##################################################
+
+BRUTE_PORT=20000
+
+### bulletin ###############################################
+
+BULLETIN_PORT=20001
+
+### download ###############################################
+
+DOWNLOAD_PORT=20002
+
 ### sqli ###################################################
 
 SQLI_PORT=20003
