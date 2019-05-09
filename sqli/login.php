@@ -27,8 +27,8 @@ if (!empty($_POST['username']) && !empty($_POST['password'])) {
 
     $dbdata = $result->fetch_assoc();
 
-    echo "Hi!".htmlentities($dbdata["name"])."<\br>";
-    echo sprintf("You %s admin!", $dbdata["name"] === "admin" ? "are" : "are not")."<\br>";
+    echo "Hi!".htmlentities($dbdata["name"])."<br />";
+    echo sprintf("You %s admin!", $dbdata["name"] === "admin" ? "are" : "are not")."<br />";
 
     if ($dbdata["name"] === "admin") {
         printf("%s %s", htmlentities("hello admin this is your flag :"), $flag);
