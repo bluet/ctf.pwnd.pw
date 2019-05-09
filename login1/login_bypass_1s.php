@@ -1,6 +1,6 @@
 
 <?php
-$db_host = 'localhost';
+$db_host = 'ctf.bluet.org';
 $db_user = 'wargame';
 $db_pass = 'qwertyQWERTY';
 $db_name = 'wargame';
