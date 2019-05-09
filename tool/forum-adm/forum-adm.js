@@ -6,9 +6,9 @@ var phantom = require('phantom');
     page.addCookie({
         name: 'cookie',
         value: 'mmmnmmmnmmmnmmmn',
-        domain: '167.99.71.81'
+        domain: 'ctf.bluet.org'
       });
-    const status = await page.open('http://167.99.71.81/exam-web/bulletin_board.php');
+    const status = await page.open('http://ctf.bluet.org:20001/bulletin_board.php');
     console.log(status);
     const content = await page.property('content');
     console.log(content);
