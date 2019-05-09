@@ -35,6 +35,11 @@ DOWNLOAD_PORT=20002
 
 SQLI_PORT=20003
 
+### sqli_mysql ###########################################
+
+SQLI_MYSQL_VERSION=5.7
+SQLI_MYSQL_PORT=33061
+
 ### ping ###################################################
 
 PING_PORT=20004
@@ -54,7 +59,7 @@ LOGIN_PORT=20007
 ### login1_mysql ###########################################
 
 LOGIN1_MYSQL_VERSION=5.7
-LOGIN1_MYSQL_PORT=20008
+LOGIN1_MYSQL_PORT=33062
 
 ### http_header ############################################
 

@@ -1,10 +1,10 @@
 
 <?php
-$db_host = 'ctf.bluet.org';
+$db_host = 'login1_mysql';
 $db_user = 'wargame';
 $db_pass = 'qwertyQWERTY';
 $db_name = 'wargame';
-$db_port = '20008';
+$db_port = '3306';
 //$r=rand(0,999);
 $key=  "LSA{you_can_never_guess_the_key}";
 

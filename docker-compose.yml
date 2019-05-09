@@ -1,11 +1,27 @@
 version: '2'
 services:
+    entry:
+        image: "node:8"
+        user: "node"
+        working_dir: /usr/src/app
+        environment:
+          - NODE_ENV=production
+        volumes:
+          - ./ctf-entry:/usr/src/app
+        expose:
+          - "3000"
+        ports:
+          - "3000:3000"
+        command: bash -c "npm install && npm start"
+
 ### brute ###########################################
     brute:
         image: richarvey/nginx-php-fpm:latest
-        network_mode: "bridge"
+        #network_mode: "bridge"
         volumes:
             - ./brute:/var/www/html/:ro
+        depends_on:
+            - entry
         ports:
             - "${BRUTE_PORT}:80"
         expose:
@@ -15,10 +31,12 @@ services:
 ### bulletin ########################################
     bulletin:
         image: richarvey/nginx-php-fpm:latest
-        network_mode: "bridge"
+        #network_mode: "bridge"
         volumes:
             - ./bulletin_board:/var/www/html/
             - ./tool/forum-adm/:/home/node/:ro
+        depends_on:
+            - entry
         ports:
             - "${BULLETIN_PORT}:80"
         expose:
@@ -28,9 +46,11 @@ services:
 ### download ########################################
     download:
         image: richarvey/nginx-php-fpm:latest
-        network_mode: "bridge"
+        #network_mode: "bridge"
         volumes:
             - ./download_center:/var/www/html/
+        depends_on:
+            - entry
         ports:
             - "${DOWNLOAD_PORT}:80"
         expose:
@@ -40,21 +60,40 @@ services:
 ### sqli ############################################
     sqli:
         image: richarvey/nginx-php-fpm:latest
-        network_mode: "bridge"
+        #network_mode: "bridge"
         volumes:
             - ./sqli:/var/www/html/:ro
+        depends_on:
+            - entry
+            - sqli_mysql
         ports:
             - "${SQLI_PORT}:80"
         expose:
             - "80"
         restart: always
           
+### sqli_mysql ############################################
+    sqli_mysql:
+        image: mysql:${SQLI_MYSQL_VERSION}
+        #network_mode: "bridge"
+        #ports:
+        #  - "${SQLI_MYSQL_PORT}:3306"
+        volumes:
+          - ./sqli/src/sqli.sql:/docker-entrypoint-initdb.d/dump.sql
+        environment:
+          MYSQL_ROOT_PASSWORD: "qwertyQWERTY"
+          MYSQL_DATABASE: "my_db"
+          MYSQL_USER: "newuser"
+          MYSQL_PASSWORD: "123"
+
 ### ping ############################################
     ping-php:
         image: richarvey/nginx-php-fpm:latest
-        network_mode: "bridge"
+        #network_mode: "bridge"
         volumes:
             - ./ping-php:/var/www/html/:ro
+        depends_on:
+            - entry
         ports:
             - "${PING_PORT}:80"
         expose:
@@ -64,9 +103,11 @@ services:
 ### md5 ####################################################
     md5:
         image: richarvey/nginx-php-fpm:latest
-        network_mode: "bridge"
+        #network_mode: "bridge"
         volumes:
             - ./md5:/var/www/html/:ro
+        depends_on:
+            - entry
         ports:
             - "${MD5_PORT}:80"
         expose:
@@ -76,9 +117,11 @@ services:
 ### login2 #################################################
     login2:
         image: richarvey/nginx-php-fpm:latest
-        network_mode: "bridge"
+        #network_mode: "bridge"
         volumes:
             - ./login2:/var/www/html/:ro
+        depends_on:
+            - entry
         ports:
             - "${LOGIN2_PORT}:80"
         expose:
@@ -88,7 +131,7 @@ services:
 ### login1 #################################################
     login1:
         image: richarvey/nginx-php-fpm:latest
-        network_mode: "bridge"
+        #network_mode: "bridge"
         volumes:
             - ./login1:/var/www/html/:ro
         depends_on:
@@ -102,10 +145,10 @@ services:
 ### login1_mysql ############################################
     login1_mysql:
         image: mysql:${LOGIN1_MYSQL_VERSION}
-        container_name: mysql-container
-        network_mode: "bridge"
-        ports:
-          - "${LOGIN1_MYSQL_PORT}:3306"
+        #container_name: mysql-container
+        #network_mode: "bridge"
+        #ports:
+        #  - "${LOGIN1_MYSQL_PORT}:3306"
         volumes:
           - ./login1/wargame.backup.sql:/docker-entrypoint-initdb.d/dump.sql
         environment:
@@ -117,11 +160,14 @@ services:
 ### http_header ############################################
     http_header:
         image: richarvey/nginx-php-fpm:latest
-        network_mode: "bridge"
+        #network_mode: "bridge"
         volumes:
             - ./http_header:/var/www/html/:ro
+        depends_on:
+            - entry
         ports:
             - "${HTTP_HEADER_PORT}:80"
         expose:
             - "80"
         restart: always
+

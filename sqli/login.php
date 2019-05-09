@@ -1,9 +1,9 @@
 <?php
-$db_host = "ctf.bluet.org";
+$db_host = "sqli_mysql";
 $db_user = "newuser";
 $db_pass = "123";
 $db_name = "my_db";
-$db_port = "33061";
+$db_port = "3306";
 $flag = "LSA {sqli is great?!}";
 
 $user = $_POST['username'];
