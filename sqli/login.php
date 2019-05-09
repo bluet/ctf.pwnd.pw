@@ -33,3 +33,4 @@ if (!empty($_POST['username']) && !empty($_POST['password'])) {
     if ($dbdata["name"] === "admin") {
         printf("%s %s", htmlentities("hello admin this is your flag :"), $flag);
     }
+}
