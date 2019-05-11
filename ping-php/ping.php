@@ -7,7 +7,8 @@
 <?php 
 if (isset($_POST['ip'])) { 
   $ip = $_POST['ip'];
-  @system("timeout 2 bash -c 'ping -c 1 $ip' 2>&1");
+  @system("timeout -t 2 bash -c 'ping -c 1 $ip' 2>&1");
+  //need more fix @ http://yongqing.is-programmer.com/posts/212899.html
 }
 ?>
 </textarea>
