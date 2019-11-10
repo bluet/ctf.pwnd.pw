@@ -171,3 +171,19 @@ services:
             - "80"
         restart: always
 
+### Hidden Info and NAT Site _ backend ############################################
+    backend:
+        image: "node:8"
+        working_dir: /usr/src/app
+        depends_on:
+            - entry
+        environment:
+            PORT: 3001
+            NODE_ENV: 'production'
+        volumes:
+            - ./hidden-port:/usr/src/app
+        expose:
+            - "3001"
+        #ports:
+        #    - "3001:3001"
+        command: bash -c "npm install && npm start"
