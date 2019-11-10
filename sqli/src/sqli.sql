@@ -35,7 +35,7 @@ CREATE TABLE `account` (
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
-INSERT INTO `account` VALUES (1,'oliver','hello123'),(2,'barbara','apple555apple'),(3,'belle','belle123'),(4,'admin','helloworld');
+INSERT INTO `account` VALUES (1,'oliver','hello123'),(2,'barbara','apple555apple'),(3,'superadminaccount','belle123'),(4,'admin','helloworld');
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
