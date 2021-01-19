@@ -1,7 +1,7 @@
 version: '2'
 services:
     entry:
-        image: "node:8"
+        image: "node:latest"
         user: "node"
         working_dir: /usr/src/app
         environment:
@@ -173,7 +173,7 @@ services:
 
 ### 6. Hidden Info and NAT Site _ backend ############################################
     backend:
-        image: "node:8"
+        image: "node:latest"
         working_dir: /usr/src/app
         depends_on:
             - entry
@@ -191,7 +191,7 @@ services:
 
 ### 10. Network _ backend ############################################
     backend_Network:
-        image: "node:8"
+        image: "node:latest"
         working_dir: /usr/src/app
         depends_on:
             - entry
