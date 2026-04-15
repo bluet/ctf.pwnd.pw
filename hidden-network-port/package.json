@@ -6,7 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "body-parser": "^1.20.4",
+    "body-parser": "^2.0.0",
     "cookie-parser": "^1.4.5",
     "debug": "~3.1.0",
     "express": "^4.22.0",
