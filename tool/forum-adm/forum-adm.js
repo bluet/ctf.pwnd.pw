@@ -1,16 +1,16 @@
-var phantom = require('phantom');
+var puppeteer = require('puppeteer');
 //$cookie_admin = 'mmmnmmmnmmmnmmmn';
-(async function() {   
-    const instance = await phantom.create();
-    const page = await instance.createPage();
-    page.addCookie({
+(async function() {
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.setCookie({
         name: 'cookie',
         value: 'mmmnmmmnmmmnmmmn',
         domain: 'ctf.bluet.org'
-      });
-    const status = await page.open('http://ctf.bluet.org:20001/bulletin_board.php');
-    console.log(status);
-    const content = await page.property('content');
+    });
+    const response = await page.goto('http://ctf.bluet.org:20001/bulletin_board.php');
+    console.log(response.status());
+    const content = await page.content();
     console.log(content);
-    await instance.exit();
+    await browser.close();
 }());
