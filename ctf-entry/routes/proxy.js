@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var fs = require('fs');
-var request = require('request');
+var axios = require('axios');
 
 
 /* GET home page. */
@@ -10,9 +10,10 @@ router.get('/', function(req, res, next) {
 	var page = "page is set to " + path;
 	
 	if (path.startsWith("http://")) {
-		request(path, function (err, response, body) {
-			if (err) { return console.log(err); }
-			res.render('index', { title: "Someone's Great Website", page: page, content: body });
+		axios.get(path).then(function(response) {
+			res.render('index', { title: "Someone's Great Website", page: page, content: response.data });
+		}).catch(function(err) {
+			console.log(err);
 		});
 	} else {
 		path = "public/" + path;
