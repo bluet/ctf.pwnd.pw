@@ -10,10 +10,15 @@ router.get('/', function(req, res, next) {
 	var page = "page is set to " + path;
 	
 	if (path.startsWith("http://")) {
-		axios.get(path).then(function(response) {
+		axios.get(path, {
+			validateStatus: function() {
+				return true;
+			}
+		}).then(function(response) {
 			res.render('index', { title: "Someone's Great Website", page: page, content: response.data });
 		}).catch(function(err) {
 			console.log(err);
+			res.render('index', { title: "Someone's Great Website", page: page, content: '' });
 		});
 	} else {
 		path = "public/" + path;
